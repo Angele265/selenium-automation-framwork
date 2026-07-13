@@ -2,13 +2,13 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from utilities.wait_utils import WaitUtils
+from pages.base_page import BasePage
 
 
-class SignupLoginPage:
+class SignupLoginPage(BasePage):
 
     def __init__(self, driver):
-        self.driver = driver
-        self.wait = WaitUtils(driver)
+        super().__init__(driver)
 
     # Locators
     signup_login_button = (By.LINK_TEXT, "Signup / Login")
@@ -16,28 +16,26 @@ class SignupLoginPage:
     name_field = (By.CSS_SELECTOR, "input[data-qa='signup-name']")
     email_field = (By.CSS_SELECTOR, "input[data-qa='signup-email']")
     signup_button = (By.CSS_SELECTOR, "button[data-qa='signup-button']")
+    consent_button = (By.XPATH, "//button[contains(., 'Consent') or contains(., 'Accept')]")
 
     def click_signup_login(self):
 
         try:
-            WebDriverWait(self.driver, 5).until(
-                EC.element_to_be_clickable((By.XPATH, "//button[contains(., 'Consent') or contains(., 'Accept')]"))
-            ).click()
+            self.click(self.consent_button)
         except:
             pass
 
-        self.wait.wait_for_clickable(self.signup_login_button).click()
+        self.click(self.signup_login_button)
 
     def is_signup_heading_displayed(self):
-        return self.wait.wait_for_visibility(self.signup_heading).is_displayed()
+        return self.is_displayed(self.signup_heading)
 
     def enter_name(self, name):
-        self.wait.wait_for_visibility(self.name_field).send_keys(name)
-
+        self.type(self.name_field, name)
 
     def enter_email(self, email):
-        self.wait.wait_for_visibility(self.email_field).send_keys(email)
+        self.type(self.email_field, email)
 
     def click_signup_button(self):
 
-        self.wait.wait_for_clickable(self.signup_button).click()
+        self.click(self.signup_button)
