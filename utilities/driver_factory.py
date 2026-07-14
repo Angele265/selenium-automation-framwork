@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.chrome.options import Options
-
+from config.config import Config
 
 class DriverFactory:
 
@@ -18,6 +18,6 @@ class DriverFactory:
             service=Service(ChromeDriverManager().install()), options=options
         )
 
-        driver.implicitly_wait(10)
+        driver.implicitly_wait(Config.IMPLICIT_WAIT)
 
         return driver

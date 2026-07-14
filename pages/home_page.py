@@ -1,9 +1,10 @@
-class HomePage:
+from config.config import Config
+from pages.base_page import BasePage
+class HomePage(BasePage):
 
-    URL = "https://automationexercise.com"
     def __init__(self, driver):
-        self.driver = driver
+        super.__init__(driver)
     def open(self):
-        self.driver.get(self.URL)
+        self.driver.get(Config.BASE_URL )
     def get_title(self):
         return self.driver.title
