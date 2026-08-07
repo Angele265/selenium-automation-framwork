@@ -1,0 +1,2 @@
+[32mINFO    [0m AutomationExercise:test_register_new_user.py:19 Login page heading displayed successfully
+[32mINFO    [0m AutomationExercise:test_register_new_user.py:51 Account created successfully

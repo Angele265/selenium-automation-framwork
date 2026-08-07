@@ -2,6 +2,7 @@ import pytest
 import os
 from datetime import datetime
 from utilities.driver_factory import DriverFactory
+from utilities.data_generator import DataGenerator
 
 @pytest.fixture
 def driver():
@@ -31,3 +32,8 @@ def pytest_runtest_makereport(item, call):
             driver.save_screenshot(filepath)
 
             print(f"\nScreenshot saved: {filepath}")
+
+@pytest.fixture
+def user():
+    test_user = DataGenerator.generate_user_info()
+    return test_user

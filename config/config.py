@@ -1,8 +1,12 @@
 class Config:
     BASE_URL = "https://automationexercise.com"
 
-    IMPLICIT_WAIT = "10"
+    IMPLICIT_WAIT = 20
 
-    EXPLICIT_WAIT = "10"
+    EXPLICIT_WAIT = 20
 
     BROWSER = "chrome"
+
+    USER_EMAIL = ""
+
+    USER_PASSWORD = ""

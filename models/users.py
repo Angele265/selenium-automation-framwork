@@ -16,3 +16,5 @@ class User:
     year: str
     mobile_number: str
     address: str
+    user_email: str
+    user_password: str

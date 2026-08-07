@@ -3,9 +3,9 @@ from pages.signup_login_page import SignupLoginPage
 from utilities.data_generator import DataGenerator
 from pages.account_information_page import AccountInformationPage
 from utilities.logger import Logger
+from config.config import Config
 
-
-def test_register_new_user(driver):
+def test_register_new_user(driver, user):
     home_page = HomePage(driver)
     signup_login_page = SignupLoginPage(driver)
     account_page = AccountInformationPage(driver)
@@ -21,7 +21,7 @@ def test_register_new_user(driver):
         logger.info("Login page heading displayed unsuccessfully")
         assert False
 
-    user = DataGenerator.generate_user_info()
+    # user = DataGenerator.generate_user_info()
     signup_login_page.enter_name(user.name)
     signup_login_page.enter_email(user.email)
     signup_login_page.click_signup_button()

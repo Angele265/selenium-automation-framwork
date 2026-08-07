@@ -20,5 +20,7 @@ class DataGenerator:
             state="Manching",
             country="Canada",
             mobile_number="123456780",
-            zipcode="85077"
+            zipcode="85077",
+            user_email="bih@example.com",
+            user_password="Password123"
         )

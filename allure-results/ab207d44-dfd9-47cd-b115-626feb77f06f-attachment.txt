@@ -1,0 +1,1 @@
+[32mINFO    [0m AutomationExercise:test_homepage_title.py:11 Page title verified successfully: Automation Exercise
