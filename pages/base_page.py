@@ -36,3 +36,18 @@ class BasePage:
     def select_by_visible_text(self, locator, text):
         dropdown = Select(self.wait.until(EC.visibility_of_element_located(locator)))
         dropdown.select_by_visible_text(text)
+
+    def upload_file(self, locator, file_path):
+        element = self.wait.until(EC.presence_of_element_located(locator))
+        element.send_keys(file_path)
+
+    def accept_alert(self):
+        alert = self.wait.until(EC.alert_is_present())
+        alert.accept()
+
+    def get_product_count(self, locator):
+        products = self.wait.until(EC.visibility_of_all_elements_located(locator))
+        print(len(products))
+        return len(products)
+
+

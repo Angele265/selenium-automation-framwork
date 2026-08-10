@@ -22,5 +22,8 @@ class DataGenerator:
             mobile_number="123456780",
             zipcode="85077",
             user_email="bih@example.com",
-            user_password="Password123"
+            user_password="Password123",
+            subject="Test Contact Form Submission",
+            message="This is an automated test message. I am verifying that the contact form submission works correctly using Selenium automation.",
+            file_path="C:\\Users\\Angele\\selenium-automation-framwork\\test_file.txt"
         )

@@ -18,3 +18,6 @@ class User:
     address: str
     user_email: str
     user_password: str
+    subject: str
+    message: str
+    file_path: str
