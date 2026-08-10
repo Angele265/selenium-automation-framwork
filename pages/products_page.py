@@ -7,11 +7,7 @@ class ProductSearch(BasePage):
     search_product_field = (By.ID, "search_product")
     search_button = (By.ID, "submit_search")
     products = (By.CSS_SELECTOR, "div.productinfo.text-center")
-    VIEW_PRODUCT = (
-        By.XPATH,
-        "//div[contains(@class,'productinfo')]"
-        "//a[contains(text(),'View Product')]"
-    )
+    add_to_cart = (By.CSS_SELECTOR, "a[data-product-id='1'].add-to-cart")
 
     def __init__(self, driver):
         super().__init__(driver)
@@ -31,7 +27,5 @@ class ProductSearch(BasePage):
     def total_product(self):
         return self.get_product_count(self.products)
 
-    def click_view_product(self):
-        self.click(
-            self.VIEW_PRODUCT
-        )
+    def add_item_to_cart(self):
+        self.click(self.add_to_cart)
