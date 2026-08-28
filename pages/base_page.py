@@ -57,4 +57,8 @@ class BasePage:
         print(len(products))
         return len(products)
 
+    def wait_until_not_visible(self, locator):
+
+        return self.wait.until(EC.invisibility_of_element_located(locator))
+
 
